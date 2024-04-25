@@ -4,24 +4,24 @@ This project illustrates a basic authentication system developed with Express.js
 
 ## How It Works
 
-### Components:
+### Components
 - **Express.js**: A versatile and lightweight Node.js web application framework utilized for routing and middleware management.
 - **Passport.js**: An authentication middleware for Node.js, offering support for various authentication methods, including the local strategy (username and password authentication).
 - **Mongoose**: An Object Data Modeling (ODM) library for MongoDB and Node.js, providing a schema-based solution for modeling application data.
 
-### Workflow:
+### Workflow
 
-1. **User Registration**:
+1. **User Registration**
    - Upon user registration, the system collects their username and password via a form submission.
    - The provided credentials are stored in the MongoDB database using Mongoose.
    - Passwords are securely hashed using `passport-local-mongoose`, a Passport plugin simplifying authentication with Mongoose models.
 
-2. **User Authentication**:
+2. **User Authentication**
    - Passport's local strategy is configured to authenticate users based on the provided username and password.
    - Upon login attempt, Passport verifies the existence of the username in the database and authenticates the password.
    - Upon successful authentication, the user is redirected to the profile page; otherwise, they are redirected back to the login page.
 
-3. **Session Management**:
+3. **Session Management**
    - Express session middleware handles user sessions.
    - After successful authentication, Passport serializes the user instance into the session.
    - During subsequent requests, Passport deserializes the user from the session, making it accessible in `req.user`.
@@ -31,7 +31,7 @@ This project illustrates a basic authentication system developed with Express.js
    - If an unauthenticated user attempts to access a protected route, they are redirected to the login page.
    - Authenticated users are granted access to the requested route.
 
-5. **Logout**:
+5. **Logout**
    - When a user logs out, their session is terminated, and they are redirected to the home page.
 
 ## Purpose of Authentication System
